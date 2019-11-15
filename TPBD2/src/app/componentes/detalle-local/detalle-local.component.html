@@ -1,0 +1,65 @@
+<div id="id01" style="display:flex; padding: 15px;" class="modal">
+    <span (click)="destruir()" class="close h1" title="Close Modal" style="font-size: 60pt;text-align: left">×</span>
+
+    <div class=" col-md-8  col-sm-10" role="document" style=" max-height: calc(100vh - 200px); padding: 10px;    overflow-y: auto;  overflow-x: hidden">
+
+        <div class="card">
+            <div class="row my-3 animated bounce ml-4">
+                <h2 class="h1 text-center font-weight-bold">Local Elegido
+                </h2>
+            </div>
+
+            <div class="row">
+
+                <div class="col-6">
+                    <h3>Local Id: {{local.nombre}}</h3>
+                    <p class="card-text ">Direccion {{local.descripcion}}</p>
+                    <hr>
+                </div>
+            </div>
+            <hr>
+            <div class="col-12">
+                <h1>Listado de Logs</h1>
+                <mat-form-field>
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                </mat-form-field>
+
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="usuario">
+                        <th mat-header-cell *matHeaderCellDef> Usuario </th>
+                        <td mat-cell *matCellDef="let element"> {{element.usuario}} </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="nombre">
+                        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="stock">
+                        <th mat-header-cell *matHeaderCellDef> stock </th>
+                        <td mat-cell *matCellDef="let element"> {{element.stock}} </td>
+                    </ng-container>
+
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="detalles">
+                        <th mat-header-cell *matHeaderCellDef> detalle </th>
+                        <td mat-cell *matCellDef="let element"> {{element.detalles}} </td>
+                    </ng-container>
+
+                    <!-- Symbol Column -->
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <hr>
+
+            </div>
+        </div>
+
+
+
+
+    </div>

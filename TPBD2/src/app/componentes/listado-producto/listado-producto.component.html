@@ -1,0 +1,46 @@
+<!--Section heading-->
+<div class="col-12 text-center">
+    <h2 class="h2-responsive font-weight-bold text-center ">Listado Productos
+        <mdb-icon id="cargar" fas icon="angle-down"></mdb-icon>
+    </h2>
+</div>
+
+
+<div class="col-12">
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="Nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element" (click)="elegir(element)"> {{element.nombre}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Descripcion">
+            <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+            <td mat-cell *matCellDef="let element" (click)="elegir(element)"> {{element.descripcion}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Stock">
+            <th mat-header-cell *matHeaderCellDef> Stock </th>
+            <td mat-cell *matCellDef="let element" (click)="elegir(element)"> {{element.stock}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Foto">
+            <th mat-header-cell *matHeaderCellDef> URL </th>
+            <td mat-cell *matCellDef="let element" (click)="elegir(element)"> <img src="{{element.url}}" alt="" style="height: 30px;"> </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+    <app-destalle-producto [producto]="productoElegido" *ngIf="productoElegido" (modal)="ocultar($event)"> </app-destalle-producto>
+
+</div>

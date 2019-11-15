@@ -1,0 +1,17 @@
+<app-encabezado> </app-encabezado>
+<main>
+    <div class="row" style="margin-top: 5%">
+        <div class="col-6 animated fadeInUp">
+            <app-detalle-info-personal [producto]="usuarioElegido"> </app-detalle-info-personal>
+        </div>
+
+        <div class="col-6 animated fadeInDown" *ngIf='usuarioElegido.local != "todavia no se carga" '>
+            <app-listado-producto></app-listado-producto>
+        </div>
+        <div class="col-6 animated fadeInUp" *ngIf='usuarioElegido.local== "todavia no se carga" '>
+            <h4>Su perfil todavia no ha sido asginado a ningun local, por favor contacte a su administrador</h4>
+        </div>
+    </div>
+
+
+</main>

@@ -1,0 +1,33 @@
+<!--Section heading-->
+<div class="col-12 text-center">
+    <h2 class="h2-responsive font-weight-bold text-center ">Listado Productos
+        <mdb-icon id="cargar" fas icon="angle-down"></mdb-icon>
+    </h2>
+</div>
+
+<div class="col-12">
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="Nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element" (click)="elegir(element)"> {{element.nombre}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Direccion">
+            <th mat-header-cell *matHeaderCellDef> Direccion </th>
+            <td mat-cell *matCellDef="let element" (click)="elegir(element)"> {{element.descripcion}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+    <app-detalle-local [local]="productoElegido" *ngIf="productoElegido" (modal)="ocultar($event)"> </app-detalle-local>
+
+</div>
