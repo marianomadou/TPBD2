@@ -8,9 +8,14 @@ import { MiservicioPrincipalService } from 'src/app/servicios/miservicio-princip
 })
 export class EncabezadoComponent implements OnInit {
 
+
   constructor(public servicio: MiservicioPrincipalService) { }
 
   ngOnInit() {
+  }
+
+  scrollToElement(element): void {
+    element.scrollIntoView({ behavior: "smooth", inline: "nearest" });
   }
 
 }

@@ -28,19 +28,28 @@
                             "src/assets"
                         ],
                         "styles": [
-                            "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
                             "node_modules/bootstrap/dist/css/bootstrap.min.css",
+                            "node_modules/bootstrap/dist/css/agency.min.css",
+                            "node_modules/bootstrap/dist/css/fonts/all.min.css",
                             "src/styles.scss"
                         ],
-                        "scripts": ["node_modules/jquery/dist/jquery.min.js",
-                            "node_modules/bootstrap/dist/js/bootstrap.js.map"]
+                        "scripts": [
+                            "node_modules/jquery/dist/jquery.min.js",
+                            "node_modules/bootstrap/dist/js/bootstrap.bundle.js",
+                            "node_modules/jquery/dist/jquery.easing.min.js",
+                            "node_modules/bootstrap/dist/js/contact_me.js",
+                            "node_modules/bootstrap/dist/js/jqBootstrapValidation.js",
+                            "node_modules/bootstrap/dist/js/agency.min.js"
+                        ]
                     },
                     "configurations": {
                         "production": {
-                            "fileReplacements": [{
-                                "replace": "src/environments/environment.ts",
-                                "with": "src/environments/environment.prod.ts"
-                            }],
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
+                                }
+                            ],
                             "optimization": true,
                             "outputHashing": "all",
                             "sourceMap": false,
@@ -50,7 +59,8 @@
                             "extractLicenses": true,
                             "vendorChunk": false,
                             "buildOptimizer": true,
-                            "budgets": [{
+                            "budgets": [
+                                {
                                     "type": "initial",
                                     "maximumWarning": "10mb",
                                     "maximumError": "15mb"

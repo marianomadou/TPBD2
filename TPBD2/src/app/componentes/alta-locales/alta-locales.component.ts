@@ -20,7 +20,7 @@ export class AltaLocalesComponent implements OnInit {
   valorActor;
 
   constructor(private serviciogeneral: MiservicioPrincipalService, private auth: AuthService) {
-    this.localNuevo= new Local();
+    this.localNuevo = new Local();
     this.ver = true;
   }
 
@@ -29,10 +29,9 @@ export class AltaLocalesComponent implements OnInit {
   }
 
   cargar() {
-    console.log("hola");
-    
-  this.localNuevo.logLocal = new Array();
-  this.serviciogeneral.locales().enviarLocal(this.localNuevo);
+
+    this.localNuevo.logLocal = new Array();
+    this.serviciogeneral.locales().enviarLocal(this.localNuevo);
   }
 
 

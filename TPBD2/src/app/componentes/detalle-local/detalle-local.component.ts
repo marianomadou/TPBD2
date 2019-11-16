@@ -40,8 +40,8 @@ export class DetalleLocalComponent implements OnInit {
 
   }
 
-  agregarStock() {
-
+  async  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }

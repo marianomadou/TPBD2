@@ -1,17 +1,21 @@
-export class LogUsuario {
+export class LogUsuario {  
     usuario;
+    productoUid;
+    nombre;
     fecha;
     cantidad;
-    local;
+    stock;
     detalle;
+    local;
 
-    constructor(usuario, date, cant, local, detalle) {
+    constructor(usuario, uid ,date, cant, detalle, nom, local) {
         this.usuario = usuario;
+        this.productoUid = uid;
         this.cantidad = cant;
+        this.stock = cant;
         this.fecha = date;
-        this.local= local;
         this.detalle= detalle;
+        this.nombre= nom;
+        this.local = local;
     }
-
-
 }

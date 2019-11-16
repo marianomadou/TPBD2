@@ -1,6 +1,59 @@
-<app-encabezado> </app-encabezado>
+<!-- <app-encabezado> </app-encabezado> -->
 
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+
+        <a class="navbar-brand js-scroll-trigger" (click)="scrollToElement(top)">Start Bootstrap</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" (click)="scrollToElement(services)">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" (click)="scrollToElement(portfolio)">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" (click)="scrollToElement(about)">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" (click)="scrollToElement(team)">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" (click)="scrollToElement(contact)">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <div class="row col-3">
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small"
+                *ngIf="servicio.autenticar().afAuth.auth.currentUser">{{servicio.autenticar().afAuth.auth.currentUser.email}}</span>
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small"
+                *ngIf="servicio.autenticar().afAuth.auth.currentUser"
+                (click)="servicio.autenticar().signOut()">Logout</span>
+        </div>
+    </div>
+</nav>
+
+<!-- Header -->
+
+<header class="masthead">
+    <section #top>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Welcome To Our Studio!</div>
+                <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+            </div>
+        </div>
+    </section>
+</header>
 <main>
+
     <div class="row" style="margin-top: 5%">
         <div class="col-4 animated fadeInUp ">
             <!-- <app-alta-producto></app-alta-producto> -->
@@ -30,12 +83,12 @@
 
 
 <!-- Services -->
-<section class="page-section" id="services">
+<section class="page-section" id="services" #services>
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading text-uppercase">Alta Productos</h2>
-                
+
             </div>
         </div>
         <div class="row text-center">
@@ -47,7 +100,7 @@
 </section>
 
 <!-- Portfolio Grid -->
-<section class="bg-light page-section" id="portfolio">
+<section class="bg-light page-section" id="portfolio" #portfolio>
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -151,7 +204,7 @@
 </section>
 
 <!-- About -->
-<section class="page-section" id="about">
+<section class="page-section" id="about" #about>
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -240,7 +293,7 @@
 </section>
 
 <!-- Team -->
-<section class="bg-light page-section" id="team">
+<section class="bg-light page-section" id="team" #team>
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -360,7 +413,7 @@
 </section>
 
 <!-- Contact -->
-<section class="page-section" id="contact">
+<section class="page-section" id="contact" #contact>
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
