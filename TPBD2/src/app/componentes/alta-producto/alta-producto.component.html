@@ -27,7 +27,7 @@
                 <!--Grid column-->
                 <div class="col-md-9">
                     <div class="md-form mb-0">
-                        <input type="text" id="name" name="name" placeholder="Titulo" class="form-control" [(ngModel)]="peliculaNueva.nombre" maxlength="12" required>
+                        <input type="text" id="name" name="name" placeholder="Titulo" class="form-control" [(ngModel)]="nuevoProducto.nombre" maxlength="12" required>
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@
 
                 <div class="col-md-3">
                     <div class="md-form mb-0">
-                        <input type="number" id="costo" placeholder="costo" name="costo" class="form-control" maxlength="3" [(ngModel)]="peliculaNueva.costo" required>
+                        <input type="number" id="costo" placeholder="costo" name="costo" class="form-control" maxlength="3" [(ngModel)]="nuevoProducto.costo" required>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="md-form mb-0">
-                        <input type="text" rows="3" id="descripcion" placeholder="descripcion" name="descripcion" class="form-control" maxlength="80" [(ngModel)]="peliculaNueva.descripcion" required />
+                        <input type="text" rows="3" id="descripcion" placeholder="descripcion" name="descripcion" class="form-control" maxlength="80" [(ngModel)]="nuevoProducto.descripcion" required />
                     </div>
                 </div>
                 <div class="row">
@@ -52,19 +52,9 @@
                             <input type="file" id="archivo" name="archivo" class="form-control" (change)="detectFiles($event)" required>
                         </div>
                     </div>
-                    <!--        <div class="col-md-3">
-                        <div class="md-form mb-0">
-                            <select class="browser-default custom-select" id="local" required>                    
-                                    <option value="caba">CABA</option>
-                                    <option value="cordoba">Cordoba</option>
-                                    <option value="mendoza">Mendoza</option>
-                                    <option value="rosario">Rosario</option>
-                                </select>
-                        </div>
-                    </div> -->
                 </div>
                 <div class="md-form mb-0 col-3">
-                    <button type="button" class="btn btn-secondary" (click)="cargar()">Enviar</button>
+                    <button type="button" class="btn btn-secondary" (click)="cargar()">Guardar Producto</button>
                 </div>
             </div>
 

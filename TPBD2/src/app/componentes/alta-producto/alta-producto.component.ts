@@ -13,14 +13,13 @@ import { LogStock } from 'src/app/clases/log-stock';
 export class AltaProductoComponent
   implements OnInit {
 
-  peliculaNueva: Producto;
-  /*   generos: TipoPelicula; */
+  nuevoProducto: Producto;
   archivo: any;
   ver: boolean;
   valorActor;
 
   constructor(private serviciogeneral: MiservicioPrincipalService, private auth: AuthService) {
-    this.peliculaNueva = new Producto();
+    this.nuevoProducto = new Producto();
     this.ver = true;
   }
 
@@ -29,10 +28,10 @@ export class AltaProductoComponent
   }
 
   cargar() {
-    this.peliculaNueva.stock = 0;
-    this.peliculaNueva.logDeStock = new Array();
-    this.peliculaNueva.logDeStock.push(new LogStock(this.serviciogeneral.autenticar().afAuth.auth.currentUser.email, new Date(Date.now()), this.peliculaNueva.stock,this.serviciogeneral.usuarios().traerUsuarioActual().local, "Carga inicial del producto" ));
-    this.serviciogeneral.productos().enviarConFoto(this.peliculaNueva, this.archivo);
+    this.nuevoProducto.stock = 0;
+    this.nuevoProducto.logDeStock = new Array();
+    this.nuevoProducto.logDeStock.push(new LogStock(this.serviciogeneral.autenticar().afAuth.auth.currentUser.email, new Date(Date.now()), this.nuevoProducto.stock,this.serviciogeneral.usuarios().traerUsuarioActual().local, "Carga inicial del producto" ));
+    this.serviciogeneral.productos().enviarConFoto(this.nuevoProducto, this.archivo);
   }
 
 

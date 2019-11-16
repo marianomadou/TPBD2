@@ -35,6 +35,7 @@ import { AltaLocalesComponent } from './componentes/alta-locales/alta-locales.co
 import { DetalleLocalComponent } from './componentes/detalle-local/detalle-local.component';
 import { ListadoLogUsuarioComponent } from './componentes/listado-log-usuario/listado-log-usuario.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -29,8 +29,8 @@ export class ProductosService {
     return this.fireStore.collection('productos').doc(uid).delete();
   }
 
-  actualizarUno(peliculaActualizar) {
-    return this.fireStore.collection('productos').doc(peliculaActualizar.uid).update(peliculaActualizar);
+  actualizarUno(productoActualizar) {
+    return this.fireStore.collection('productos').doc(productoActualizar.uid).update(productoActualizar);
   }
 
 
@@ -44,8 +44,10 @@ export class ProductosService {
           console.log(URL);
           let id = this.fireStore.createId();
           productoNuevo.uid = id;
+          productoNuevo.url = URL;
           this.fireStore.collection('productos').doc(id).set(JSON.parse(JSON.stringify(productoNuevo)), { merge: true });
         }), 3000);
+        //this.actualizarUno(productoNuevo);
       }
     });
 

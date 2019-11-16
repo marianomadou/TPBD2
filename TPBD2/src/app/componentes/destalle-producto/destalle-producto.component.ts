@@ -6,6 +6,7 @@ import { MiservicioPrincipalService } from 'src/app/servicios/miservicio-princip
 import { LogStock } from 'src/app/clases/log-stock';
 import { LogLocal } from 'src/app/clases/log-local';
 import { LogUsuario } from 'src/app/clases/log-Usuario';
+import { timer } from 'rxjs';
 
 
 
@@ -24,6 +25,7 @@ export class DestalleProductoComponent implements OnInit {
   nuevoStock;
   modificar;
   listaLocales = [];
+  showSpinner: boolean;
 
   constructor(private servicioGeneral: MiservicioPrincipalService) {
     this.modal = new EventEmitter();
@@ -50,6 +52,10 @@ export class DestalleProductoComponent implements OnInit {
   agregarStock() {
 
     let productoYaExiste = false;
+    this.showSpinner = true;
+    timer(3000).subscribe( () => {
+      this.showSpinner = false;
+    });
 
     let local: Local = this.servicioGeneral.locales().traerLocalActual();
     local.logLocal.forEach((element) => {
@@ -57,26 +63,26 @@ export class DestalleProductoComponent implements OnInit {
         if ((element.stock + this.nuevoStock) > 0 && !productoYaExiste) {
           element.stock = element.stock + this.nuevoStock;
           productoYaExiste = true;
-          this.nuevoStockDetalle= "existe";
+          this.producto.stock=element.stock;
+          this.nuevoStockDetalle = "existe";
           this.producto.logDeStock.push(JSON.parse(JSON.stringify(new LogStock(this.servicioGeneral.autenticar().afAuth.auth.currentUser.email, new Date(Date.now()), this.nuevoStock, this.servicioGeneral.usuarios().traerUsuarioActual().local, this.nuevoStockDetalle))));
-          
+
         }
         if ((element.stock + this.nuevoStock) < 0 && !productoYaExiste) {
           productoYaExiste = true;
-          this.nuevoStockDetalle= "NO ALCANZA";
-          
+          this.producto.stock=element.stock;
+          this.nuevoStockDetalle = "NO ALCANZA";
+
         }
       }
     });
     if (!productoYaExiste) {
-      console.log("NO existe" , this.producto.uid);
+      console.log("NO existe", this.producto.uid);
       local.logLocal.push(new LogLocal(this.servicioGeneral.usuarios().traerUsuarioActual().email, this.producto.uid, new Date(Date.now()), this.nuevoStock, this.nuevoStockDetalle, this.producto.nombre));
       this.producto.logDeStock.push(JSON.parse(JSON.stringify(new LogStock(this.servicioGeneral.autenticar().afAuth.auth.currentUser.email, new Date(Date.now()), this.nuevoStock, this.servicioGeneral.usuarios().traerUsuarioActual().local, this.nuevoStockDetalle))));
     }
-
-
-
- this.servicioGeneral.usuarios().usuarioActual.logDeStock.push(JSON.parse(JSON.stringify(new LogUsuario(this.servicioGeneral.usuarios().traerUsuarioActual().email, this.producto.uid, new Date(Date.now()), this.nuevoStock, this.nuevoStockDetalle, this.producto.nombre,this.servicioGeneral.usuarios().traerUsuarioActual().local))));
+    this.servicioGeneral.productos().actualizarUno(this.producto);
+    this.servicioGeneral.usuarios().usuarioActual.logDeStock.push(JSON.parse(JSON.stringify(new LogUsuario(this.servicioGeneral.usuarios().traerUsuarioActual().email, this.producto.uid, new Date(Date.now()), this.nuevoStock, this.nuevoStockDetalle, this.producto.nombre, this.servicioGeneral.usuarios().traerUsuarioActual().local))));
     this.servicioGeneral.actualizarLogsTodos(this.producto, local);
 
   }
