@@ -1,4 +1,4 @@
-<div id="id01" style="display:flex; padding: 15px;" class="modal">
+<!-- <div id="id01" style="display:flex; padding: 15px;" class="modal">
     <span (click)="destruir()" class="close h1" title="Close Modal" style="font-size: 60pt;text-align: left">×</span>
 
     <div class="col-6   animated fadeInUp">
@@ -19,10 +19,10 @@
                 <h1>Cambio Local</h1>
                 <div class="row">
                     <div class="form-group">
-                        <select id="local" class="browser-default custom-select" (change)="onChange($event.target.value)">
+                        <select id="local" class="browser-default custom-select"
+                            (change)="onChange($event.target.value)">
                             <option value="todavia no se carga"> </option>
                             <option value="{{local}}" *ngFor="let local of listaLocales">{{local}}</option>
-                     
                         </select>
                     </div>
                     <div class="col-3">
@@ -35,7 +35,8 @@
                 <h1>Cambio Perfil</h1>
                 <div class="row">
                     <div class="form-group">
-                        <select id="local" class="browser-default custom-select" (change)="onChangePerfil($event.target.value)">
+                        <select id="local" class="browser-default custom-select"
+                            (change)="onChangePerfil($event.target.value)">
                             <option value="admin">Admin</option>
                             <option value="usuario">Usuario</option>
                         </select>
@@ -45,11 +46,70 @@
                     </div>
                 </div>
             </div>
-            <!--        <div class="col-3">
-                <button type="button" class="btn btn-secondary" (click)="eliminarUsuario()">Eliminar Usuario</button>
-            </div> -->
-
         </div>
     </div>
+</div> -->
 
-</div>
+
+<div id="id01" style="display:flex; padding: 15px;" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class=" col-md-12 col-lg-12 col-sm-10" role="document"
+        style=" max-height: calc(200vh - 200px); padding: 2px;    overflow-y: auto;  overflow-x: hidden">
+        <span (click)="destruir()" class="close h1" title="Close Modal"
+            style="font-size: 60pt;text-align: left">×</span>
+        <div class="card">
+                <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-uppercase text-center">Usuario seleccionado</h2>
+            </div>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-5">
+                    <div class="card-body md-form">
+                        <div class="row">
+                            <div class="col-8 mt-5">
+                                <label class="item-intro text-muted" for="stock">Modificación de Local</label>
+                                <div class="form-group">
+                                    <select id="local" class="browser-default custom-select"
+                                        (change)="onChange($event.target.value)">
+                                        <option value="Sin local asignado"> </option>
+                                        <option value="{{local}}" *ngFor="let local of listaLocales">{{local}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-3 mt-2">
+                                    <button type="button" class="btn btn-secondary"
+                                        (click)="modificarLocal()">Modificar</button>
+                                </div>
+                            </div>
+                            <div class="col-8 mt-5">
+                                <label class="item-intro text-muted" for="stock">Modificación de Perfil</label>
+                                <div class="form-group">
+                                    <select id="local" class="browser-default custom-select"
+                                        (change)="onChangePerfil($event.target.value)">
+                                        <option value="admin">Admin</option>
+                                        <option value="usuario">Usuario</option>
+                                    </select>
+                                </div>
+                                <div class="col-3 mt-2">
+                                    <button type="button" class="btn btn-secondary"
+                                        (click)="modificarLocal()">Modificar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <div class="spinnerInterceptor heartBeat" *ngIf="showSpinner">
+                        <img src="../../../assets/icons/icon.png">
+                    </div>
+                </div>
+                <div class="col-5">
+                    <img src="{{producto.foto}}" class="card-img-top" alt="{{producto.foto}}"
+                        style=" max-height: 150px;  margin-left: auto; margin-right: auto;   width: auto">
+                    <h4 class="text-uppercase">Email: {{producto.email}}</h4>
+                    <p class="item-intro text-muted">Nombre: {{producto.nombre}}</p>
+                    <p class="item-intro text-muted">Apellido: {{producto.apellido}}</p>
+                    <p class="item-intro text-muted">Perfil: {{producto.perfil}}</p>
+                    <p class="item-intro text-muted">Local: {{producto.local}}</p>
+                </div>
+            </div>
+        </div>
+    </div>

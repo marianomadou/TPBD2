@@ -11,7 +11,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class ListadoProductoComponent implements OnInit {
 
-  peliculas: Array<any> = Array<any>();
+  productos: Array<any> = Array<any>();
   displayedColumns: string[] = ['Nombre', 'Descripcion', 'Stock', 'Foto'];
   dataSource;
   productoElegido;
@@ -23,12 +23,12 @@ export class ListadoProductoComponent implements OnInit {
   ngOnInit() {
 
     this.servicioGeneral.productos().traerTodo().subscribe((actions => {
-      this.peliculas = [];
+      this.productos = [];
       actions.map(a => {
         const data = a.payload.doc.data() as Producto;
-        this.peliculas.push(data);
+        this.productos.push(data);
       });
-      this.dataSource = new MatTableDataSource(this.peliculas);
+      this.dataSource = new MatTableDataSource(this.productos);
     }));
 
 

@@ -3,7 +3,7 @@ import { AuthService } from 'src/app/servicios/auth.service';
 import { MiservicioPrincipalService } from 'src/app/servicios/miservicio-principal.service';
 import { Router } from '@angular/router';
 import { async } from '@angular/core/testing';
-
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-alta-usuario',
@@ -18,7 +18,7 @@ export class AltaUsuarioComponent implements OnInit {
   pass2: string;
   ver: boolean;
   crearNuevo;
-
+  showSpinner: boolean;
 
   constructor(
     public servicio: MiservicioPrincipalService,
@@ -37,20 +37,29 @@ export class AltaUsuarioComponent implements OnInit {
   crear() {
     if (this.crearNuevo) {
       if (this.pass == this.pass2 && this.pass != "") {
+        this.showSpinner = true;
         this.servicio.autenticar().afAuth.user;
         this.servicio.autenticar().altaUsuario(this.email, this.pass, "usuario").then(() => {
           this.servicio.usuarios().traerUnUsuarioPorMail(this.email);
           this.email = "";
           this.pass = "";
+          timer(3000).subscribe(() => {
+            this.showSpinner = false;
+          });
         }
         ).catch()
-        {
+        {this.showSpinner = true;
           console.log(" error en el registrar");
-
+          timer(3000).subscribe(() => {
+            this.showSpinner = false;
+          });
         }
 
       } else {
-        alert("toaster que no son claves iguales");
+        this.showSpinner = true;
+        timer(3000).subscribe(() => {
+          this.showSpinner = false;
+        });
         this.pass = "";
         this.pass2 = "";
 
@@ -58,16 +67,23 @@ export class AltaUsuarioComponent implements OnInit {
       }
     }
     else {
+      this.showSpinner = true;
       this.crearNuevo = true;
+      timer(3000).subscribe(() => {
+        this.showSpinner = false;
+      });
     }
 
 
   }
 
   ingresar() {
+    this.showSpinner = true;
     this.servicio.autenticar().usuarioPass(this.email, this.pass).then(async () => {
       await this.servicio.usuarios().traerUnUsuarioPorMail(this.email);
-
+      timer(3000).subscribe(() => {
+        this.showSpinner = false;
+      });
       this.email = "";
       this.pass = "";
     }).catch()

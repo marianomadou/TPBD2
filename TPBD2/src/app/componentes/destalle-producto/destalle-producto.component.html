@@ -4,10 +4,11 @@
 
     <div class=" col-md-12 col-lg-12 col-sm-10" role="document"
         style=" max-height: calc(200vh - 200px); padding: 2px;    overflow-y: auto;  overflow-x: hidden">
-        
-        <span (click)="destruir()" class="close h1" title="Close Modal" style="font-size: 60pt;text-align: left">×</span>
 
-            
+        <span (click)="destruir()" class="close h1" title="Close Modal"
+            style="font-size: 60pt;text-align: left">×</span>
+
+
         <div class="card">
             <div class="row my-3 animated bounce ml-4">
                 <h2 class="h1 text-center font-weight-bold">Producto seleccionado
@@ -18,7 +19,7 @@
                 <div class="col-1"></div>
                 <div class="col-5">
 
-                    <div class="card-body md-form">                        
+                    <div class="card-body md-form">
                         <div class="row">
                             <div class="col-8">
                                 <label class="item-intro text-muted" for="stock">Modificación de Stock (+ / -)</label>
@@ -34,14 +35,14 @@
                                 <br>
                             </div>
                         </div>
-                        
+
                     </div>
 
                 </div>
                 <div class="col-1">
-                        <div class="spinnerInterceptor heartBeat" *ngIf="showSpinner">
-                                <img src="../../../assets/icons/icon.png">
-                            </div>
+                    <div class="spinnerInterceptor heartBeat" *ngIf="showSpinner">
+                        <img style="height: 300px; width: 300px;" src="../../../assets/icons/icon_shop.svg">
+                    </div>
                 </div>
                 <div class="col-5">
                     <img src="{{producto.url}}" class="card-img-top" alt="{{producto.url}}"
@@ -49,7 +50,7 @@
                     <h4 class="text-uppercase">{{producto.nombre}}</h4>
                     <p class="item-intro text-muted">Descripcion {{producto.descripcion}}</p>
                     <p class="item-intro text-muted">Stock {{producto.stock}}</p>
-                
+
                 </div>
             </div>
 
@@ -59,7 +60,7 @@
 
 
 
-            
+
             <!-- 
             <div class="col-12">
                 <h1>Listado de Cambios</h1>
@@ -98,9 +99,3 @@
 
 
     </div>
-
-
-
-
-
-

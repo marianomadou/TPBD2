@@ -10,10 +10,10 @@ import { MiservicioPrincipalService } from 'src/app/servicios/miservicio-princip
 })
 export class ListadoUsuariosComponent implements OnInit {
 
-  peliculas: Array<any> = Array<any>();
-  displayedColumns: string[] = ['Email', 'UID', 'Name'];
+  usuarios: Array<any> = Array<any>();
+  displayedColumns: string[] = ['Foto','Email','Nombre', 'Apellido', 'Local'];
   dataSource ;
-  productoElegido;  
+  usuarioElegido;  
 
   constructor(private servicioGeneral: MiservicioPrincipalService) {  }
 
@@ -21,12 +21,13 @@ export class ListadoUsuariosComponent implements OnInit {
   ngOnInit() {
 
     this.servicioGeneral.usuarios().traerTodosUsuarios().subscribe((actions => {
-      this.peliculas= [];
+      this.usuarios= [];
       actions.map(a => {
         const data = a.payload.doc.data() as Usuario;
-        this.peliculas.push(data);
+        this.usuarios.push(data);
       });
-      this.dataSource = new MatTableDataSource(this.peliculas);
+      this.dataSource = new MatTableDataSource(this.usuarios);
+      /* console.log('DATA de tabla de usuarios', this.dataSource) */
     }));
 
   
@@ -38,7 +39,7 @@ async  applyFilter(filterValue: string) {
   }
 
   elegir(nombre) {
-    this.productoElegido = nombre;
+    this.usuarioElegido = nombre;
   }
 
 
@@ -59,7 +60,7 @@ async  applyFilter(filterValue: string) {
   {
     console.log("llego");
     
-    this.productoElegido= false;
+    this.usuarioElegido= false;
   }
 
 

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Usuarios</h2>
+            <h2 class="section-heading text-uppercase">Usuario en sesión</h2>
             <h3 class="section-subheading text-muted">Información particular del usuario actual y su relación con los
                 locales a los que pertenece</h3>
         </div>
@@ -13,8 +13,8 @@
                     style=" max-height: 150px;  margin-left: auto; margin-right: auto;   width: auto">
                 <h4 class="text-uppercase">{{producto.nombre}} {{producto.apellido}} </h4>
                 <p class="text-muted ">Email: {{producto.email}}</p>
-                <p class="text-muted ">Perfil {{producto.perfil}}</p>
-                <p class="text-muted ">Local {{producto.local}}</p>
+                <p class="text-muted ">Perfil: {{producto.perfil}}</p>
+                <p class="text-muted ">Local: {{producto.local}}</p>
                 <ul class="list-inline social-buttons">
                     <li class="list-inline-item">
                         <a href="https://www.twitter.com">
@@ -55,66 +55,34 @@
                     </div>
                     <div class="col-6">
                         <label class="item-intro text-muted" for="detalle">Perfil</label><br>
-                        <!-- <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="admin" check value="admin" *ngIf="modificar"
-                                [(ngModel)]="producto.perfil">
-                            <label class="form-check-label" for="inlineCheckbox1">Administrador</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-input" type="checkbox" id="usuario" value="usuario"
-                                *ngIf="modificar" [(ngModel)]="producto.perfil">
-                            <label class="form-check-label" for="inlineCheckbox2">Usuario</label>
-                        </div> -->
-
                         <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="admin" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                  Admin
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="usuario">
-                                <label class="form-check-label" for="exampleRadios2">
-                                  Usuario
-                                </label>
-                              </div>
-
-                        <!-- <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="model">
-                            <label ngbButtonLabel class="btn-primary">
-                                <input ngbButton type="radio" [value]="admin">Usuario
+                            <input class="form-check-input" *ngIf="modificar" [(ngModel)]="producto.perfil" type="radio"
+                                name="admin" id="admin" value="admin" checked>
+                            <label class="form-check-label" for="usuario">
+                                Admin
                             </label>
-                            <label ngbButtonLabel class="btn-primary">
-                                <input ngbButton type="radio" value="usuario"> Usuario
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" *ngIf="modificar" [(ngModel)]="producto.perfil" type="radio"
+                                name="usuario" id="usuario" value="usuario">
+                            <label class="form-check-label" for="usuario">
+                                Usuario
                             </label>
-                        </div> -->
-
-
+                        </div>
                     </div>
                     <div class="col-6">
                         <label class="item-intro text-muted" for="detalle">Foto</label>
                         <input type="file" name="detalle" id="detalle" (change)="detectFiles($event)"
                             placeholder="ingresar una foto" class="form-control" *ngIf="modificar">
                     </div>
-                    <div class="col-3 mt-5 text-right">
-                        <button type="button" class="btn btn-secondary text-center "
-                            (click)="cambiarInfo()">Modificar</button>
-                    </div>
+
+                </div>
+                <div class="col-12 mt-5 text-right">
+                    <button type="button" class="btn btn-secondary text-center "
+                        (click)="cambiarInfo()">Modificar</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-8 mx-auto text-center">
-            <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque,
-                laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
-        </div>
-    </div>
 </div>
-
-
-
-
-
-
-
-<!-- <app-listado-log-usuario></app-listado-log-usuario> -->
+<!--//logs de usuarios <app-listado-log-usuario></app-listado-log-usuario> -->

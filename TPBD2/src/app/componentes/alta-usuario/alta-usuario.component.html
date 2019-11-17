@@ -1,67 +1,46 @@
 <app-encabezado> </app-encabezado>
 
-<div class="container">
+<div class="bg-login-image mt-5 ">
+    <div class="container col-8 mt-5 justify-content-center">
+            <div class="row justify-content-center">
+                <div class="col-12 mx-auto">
 
-    <div class="col-12 text-center">
-        <h2 class="h2-responsive font-weight-bold text-center my-4">Carga Usuario/LogIn
-            <mdb-icon id="cargar" fas icon="angle-down" (click)="mostrar()" *ngIf="!ver"></mdb-icon>
-            <mdb-icon fas icon="angle-up" (click)="mostrar()" *ngIf="ver"></mdb-icon>
-
-        </h2>
-    </div>
-
-    <!-- Outer Row -->
-    <div class="row justify-content-center" *ngIf="ver">
-
-        <div class="col-xl-10 col-lg-12 col-md-9">
-
-            <div class="card o-hidden border-0 shadow-lg my-5">
-                <div class="card-body p-0">
-                    <!-- Nested Row within Card Body -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="p-5">
-                                <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4"> Bienvenido
-                                        <i class="fas fa-question-circle" (click)="ayuda()"></i>
-                                    </h1>
-
-                                </div>
-                                <form class="user">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control form-control-user validate" id="correo" [(ngModel)]="email" name="email" aria-describedby="emailHelp" placeholder="Enter Email Address..." data-error="Bruh, that email address is invalid" required>
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" id="clave" [(ngModel)]="pass" name="pass" placeholder="Password">
-                                    </div>
-                                    <div class="form-group animated fadeInDown" *ngIf="crearNuevo">
-                                        <input type="password" class="form-control form-control-user" id="clave2" [(ngModel)]="pass2" name="pass2" placeholder="Password Confirmar">
-                                    </div>
-
-                                    <a (click)="  ingresar()" class="btn btn-primary btn-user btn-block">
-                                        Ingresar
-                                    </a>
-                                    <a (click)="  crear()" class="btn btn-secondary btn-user btn-block">
-                                        Crear Usuario
-                                    </a>
-                                    <hr>
-                                </form>
-                                <hr>
-
-
-                                <button type="button" class="btn btn-primary" (click)="usuario(1)">Admin</button>
-                                <button type="button" class="btn btn-secondary" (click)="usuario(2)">Usuario</button>
-
+                    <div class="text-center mt-5">
+                        <h2 class="section-heading text-uppercase" >Ingresar al sistema</h2>
+                    </div>
+                    <div class="spinnerInterceptor heartBeat mt-5" *ngIf="showSpinner">
+                            <img style="height: 250px; width: 250px;" src="../../../assets/icons/icon_shop.svg">
+                        </div>
+                    <form class="user">
+                        <div class="form-group">
+                            <label class="item-intro text-muted" for="detalle">Email</label>
+                            <input type="email" class="form-control form-control-user validate" id="correo"
+                                [(ngModel)]="email" name="email" aria-describedby="emailHelp"
+                                placeholder="Enter Email Address..." data-error="Bruh, that email address is invalid"
+                                required>
+                            <div class="help-block with-errors">
                             </div>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label class="item-intro text-muted" for="detalle">Password</label>
+                            <input type="password" class="form-control form-control-user" id="clave" [(ngModel)]="pass"
+                                name="pass" placeholder="Password">
+                        </div>
+                        <div class="form-group animated fadeInDown" *ngIf="crearNuevo">
+                            <label class="item-intro text-muted" for="detalle">Password</label>
+                            <input type="password" class="form-control form-control-user" id="clave2"
+                                [(ngModel)]="pass2" name="pass2" placeholder="Reingresar pass">
+                        </div>
+                        <div class="row col-6 mt-5" style="margin-left: 25%;">
+                            <a (click)="  ingresar()" class="btn btn-primary btn-user btn-block">
+                                Loguearse
+                            </a>
+                            <a (click)="  crear()" class="btn btn-secondary btn-user btn-block">
+                                Registrarse
+                            </a>
+                        </div>
+                    </form>
                 </div>
             </div>
-
         </div>
-
     </div>
-
-</div>

@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/servicios/auth.service';
 import { LogStock } from 'src/app/clases/log-stock';
 import { LogLocal } from 'src/app/clases/log-local';
 import { Producto } from 'src/app/clases/producto';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-alta-locales',
@@ -18,6 +19,7 @@ export class AltaLocalesComponent implements OnInit {
   archivo: any;
   ver: boolean;
   valorActor;
+  showSpinner: boolean;
 
   constructor(private serviciogeneral: MiservicioPrincipalService, private auth: AuthService) {
     this.localNuevo = new Local();
@@ -29,9 +31,12 @@ export class AltaLocalesComponent implements OnInit {
   }
 
   cargar() {
-
+    this.showSpinner = true;
     this.localNuevo.logLocal = new Array();
     this.serviciogeneral.locales().enviarLocal(this.localNuevo);
+    timer(3000).subscribe(() => {
+      this.showSpinner = false;
+    });
   }
 
 
