@@ -51,18 +51,12 @@ export class ListadoLocalesComponent implements OnInit {
   eliminar(peli) {
     var r = confirm("Press a button!");
     if (r == true) {
-      console.log(
-        "You pressed OK!");
       this.servicioGeneral.locales().borrarUno(peli.id)
     } else {
-      console.log(
-        "You pressed Cancel!");
     }
 
   }
   ocultar($event) {
-    console.log("llego");
-
     this.productoElegido = false;
   }
 

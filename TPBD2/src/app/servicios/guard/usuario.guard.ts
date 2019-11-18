@@ -18,11 +18,7 @@ export class UsuarioGuard implements CanActivate {
   }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-
-    //verificar token servcicio que verifquie token
-
-    //obtener perfil de token
-    setTimeout(()=>console.log("time3"),3000);
+    setTimeout(() => console.log("hello!"), 3000);
 
     this.perfil = this.usuario.traerUsuarioActualPerfil();
     if (this.perfil == "usuario") {

@@ -44,11 +44,8 @@ export class DetalleInfoPersonalComponent implements OnInit {
 
 
   detectFiles(event) {
-    console.log(event);
     this.archivo = event.target.files[0];
     this.opcion = 2;
-
-
   }
 
 

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+/* import { CommonModule } from '@angular/common; */
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +13,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { FormsModule } from '@angular/forms';
 import { AngularFireStorageModule, AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
+import { ToastrModule } from 'ngx-toastr';
 import { BuscarComponent } from './componentes/buscar/buscar.component';
 import { BusquedasComponent } from './componentes/busquedas/busquedas.component';
 
@@ -71,7 +73,8 @@ import { ListadoLogUsuarioComponent } from './componentes/listado-log-usuario/li
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

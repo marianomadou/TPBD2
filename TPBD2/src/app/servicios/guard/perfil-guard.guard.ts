@@ -24,13 +24,10 @@ export class PerfilGuardGuard implements CanActivate {
     //verificar token servcicio que verifquie token
 
     //obtener perfil de token
-    setTimeout(()=>console.log("time2"),3000);
+    setTimeout(()=>console.log("hello!"),3000);
     this.perfil = this.usuario.traerUsuarioActualPerfil();
 
-    console.log("perfil" + this.perfil)
-
-
-    switch (this.perfil) {
+        switch (this.perfil) {
 
       case "admin":
         this._router.navigate(['/admin']);
@@ -44,7 +41,6 @@ export class PerfilGuardGuard implements CanActivate {
         return true;
 
       default:
-        console.log("perfil default-->" + this.perfil)
         this._router.navigate(['/login']);
         return false;
 

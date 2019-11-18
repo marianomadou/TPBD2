@@ -77,7 +77,6 @@ export class DestalleProductoComponent implements OnInit {
       }
     });
     if (!productoYaExiste) {
-      console.log("NO existe", this.producto.uid);
       local.logLocal.push(new LogLocal(this.servicioGeneral.usuarios().traerUsuarioActual().email, this.producto.uid, new Date(Date.now()), this.nuevoStock, this.nuevoStockDetalle, this.producto.nombre));
       this.producto.logDeStock.push(JSON.parse(JSON.stringify(new LogStock(this.servicioGeneral.autenticar().afAuth.auth.currentUser.email, new Date(Date.now()), this.nuevoStock, this.servicioGeneral.usuarios().traerUsuarioActual().local, this.nuevoStockDetalle))));
     }

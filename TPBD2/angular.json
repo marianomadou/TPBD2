@@ -30,7 +30,8 @@
                         "styles": [
                             "node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "node_modules/bootstrap/dist/css/fonts/css/all.min.css",
-                            "src/styles.scss"
+                            "src/styles.scss",
+                            "node_modules/ngx-toastr/toastr.css"
                         ],
                         "scripts": [
                             "node_modules/jquery/dist/jquery.min.js",

@@ -49,7 +49,6 @@ export class AltaUsuarioComponent implements OnInit {
         }
         ).catch()
         {this.showSpinner = true;
-          console.log(" error en el registrar");
           timer(3000).subscribe(() => {
             this.showSpinner = false;
           });
@@ -88,8 +87,7 @@ export class AltaUsuarioComponent implements OnInit {
       this.pass = "";
     }).catch()
     {
-      console.log(" error en el ingreso");
-
+      
     }
 
 

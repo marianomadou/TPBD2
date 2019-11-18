@@ -52,20 +52,18 @@ export class LocalesService {
   traerLocalDelUsuario(usuario: Usuario) {
 
     return this.fireStore.collection('locales').snapshotChanges().subscribe(e => {
-        e.map(a => {
-          const data = a.payload.doc.data() as Local;
-          if (data.nombre == usuario.local) {
-            console.log(" entro al usuarioñ.loca");
-           return this.localActual = data;
-          }
+      e.map(a => {
+        const data = a.payload.doc.data() as Local;
+        if (data.nombre == usuario.local) {
+          return this.localActual = data;
+        }
 
-        });
       });
-  
+    });
+
   }
 
-  traerLocalActual()
-  {
+  traerLocalActual() {
     return this.localActual;
   }
 

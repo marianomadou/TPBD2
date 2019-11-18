@@ -73,10 +73,9 @@ export class UsuariosService {
     var lala = this.storage.ref('users/' + UsuarioNuevo.email).put(archivo);
     lala.percentageChanges().subscribe((porcentaje) => {
       porcentaje = Math.round(porcentaje);
-      console.log("porcentaje" + porcentaje)
+
       if (porcentaje == 100) {
         setTimeout(() => this.storage.ref('users/' + UsuarioNuevo.email).getDownloadURL().subscribe((URL) => {
-          console.log(URL);
           UsuarioNuevo.foto = URL;
           this.actualizarUno(UsuarioNuevo);
         }), 3000);

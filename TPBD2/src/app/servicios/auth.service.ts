@@ -44,21 +44,17 @@ export class AuthService {
   }
 
   async clavePassSignin(email, pass) {
-    console.log("clavePassSignin");
-    return await this.afAuth.auth.signInWithEmailAndPassword(email, pass).then((e)=>console.log("eeeee", e));
-   
-   
+    return await this.afAuth.auth.signInWithEmailAndPassword(email, pass).then((e) => console.log("hello!", e));
   }
 
   async usuarioPass(email, pass) {
-   return this.clavePassSignin(email, pass);
+    return this.clavePassSignin(email, pass);
   }
 
 
   async altaUsuario(email, pass, perfil) {
     const credential = await this.afAuth.auth.createUserWithEmailAndPassword(email, pass);
-    console.log(credential.user.uid + " credential.user.uid")
-   this.enviar(email, pass, perfil);
+    this.enviar(email, pass, perfil);
   }
 
 
@@ -69,7 +65,7 @@ export class AuthService {
     usuario.pass = pass;
     usuario.foto = '"./assets/foto.png",';
     usuario.perfil = perfill;
-    usuario.nombre = sp[0];   
+    usuario.nombre = sp[0];
     this.usuarioServ.enviarUsuario(usuario);
   }
 
@@ -81,12 +77,8 @@ export class AuthService {
 
 
   private updateUserData(user) {
-    // Sets user data to firestore on login
-    console.log("user", user);
-
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-    userRef.valueChanges().subscribe((e) => console.log("e", e));
-
+    userRef.valueChanges().subscribe((e) => console.log("hello!", e));
 
     const data = {
       uid: user.uid,

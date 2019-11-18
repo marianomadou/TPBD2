@@ -51,18 +51,14 @@ export class ListadoProductoComponent implements OnInit {
   eliminar(peli) {
     var r = confirm("Press a button!");
     if (r == true) {
-      console.log(
-        "You pressed OK!");
+
       this.servicioGeneral.productos().borrarUno(peli.id)
     } else {
-      console.log(
-        "You pressed Cancel!");
+
     }
 
   }
   ocultar($event) {
-    console.log("llego");
-
     this.productoElegido = false;
   }
 

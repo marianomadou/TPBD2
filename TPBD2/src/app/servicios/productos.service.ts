@@ -38,10 +38,8 @@ export class ProductosService {
     var lala = this.storage.ref('productos/' + productoNuevo.nombre).put(archivo);
     lala.percentageChanges().subscribe((porcentaje) => {
       porcentaje = Math.round(porcentaje);
-      console.log("porcentaje" + porcentaje)
       if (porcentaje == 100) {
         setTimeout(() => this.storage.ref('productos/' + productoNuevo.nombre).getDownloadURL().subscribe((URL) => {
-          console.log(URL);
           let id = this.fireStore.createId();
           productoNuevo.uid = id;
           productoNuevo.url = URL;

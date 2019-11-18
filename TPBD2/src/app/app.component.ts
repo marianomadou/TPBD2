@@ -15,7 +15,7 @@ export class AppComponent {
      this.servicio.usuarios().traerUnUsuarioPorMail(localStorage.getItem("email"));      
 
     } catch (e) {
-      console.log(" no hay nadie loguead");    
+      
     }
 
   }

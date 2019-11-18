@@ -11,17 +11,17 @@ import { MiservicioPrincipalService } from 'src/app/servicios/miservicio-princip
 export class ListadoUsuariosComponent implements OnInit {
 
   usuarios: Array<any> = Array<any>();
-  displayedColumns: string[] = ['Foto','Email','Nombre', 'Apellido', 'Local'];
-  dataSource ;
-  usuarioElegido;  
+  displayedColumns: string[] = ['Foto', 'Email', 'Nombre', 'Apellido', 'Local'];
+  dataSource;
+  usuarioElegido;
 
-  constructor(private servicioGeneral: MiservicioPrincipalService) {  }
+  constructor(private servicioGeneral: MiservicioPrincipalService) { }
 
 
   ngOnInit() {
 
     this.servicioGeneral.usuarios().traerTodosUsuarios().subscribe((actions => {
-      this.usuarios= [];
+      this.usuarios = [];
       actions.map(a => {
         const data = a.payload.doc.data() as Usuario;
         this.usuarios.push(data);
@@ -30,11 +30,11 @@ export class ListadoUsuariosComponent implements OnInit {
       /* console.log('DATA de tabla de usuarios', this.dataSource) */
     }));
 
-  
+
 
   }
 
-async  applyFilter(filterValue: string) {
+  async  applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
@@ -45,22 +45,17 @@ async  applyFilter(filterValue: string) {
 
 
   eliminar(peli) {
-    var r = confirm("Seguro?!" ) ;
+    var r = confirm("Seguro?!");
     if (r == true) {
-      console.log(
-        "You pressed OK!");
-        this.servicioGeneral.productos().borrarUno(peli.id) 
+
+      this.servicioGeneral.productos().borrarUno(peli.id)
     } else {
-      console.log(
-        "You pressed Cancel!");
+
     }
 
   }
-  ocultar($event)
-  {
-    console.log("llego");
-    
-    this.usuarioElegido= false;
+  ocultar($event) {
+    this.usuarioElegido = false;
   }
 
 
