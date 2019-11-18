@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'tp2BasedeDatos';
+  title = 'BotDou.com';
   constructor(public servicio: MiservicioPrincipalService, private _router: Router) {
     
     try {

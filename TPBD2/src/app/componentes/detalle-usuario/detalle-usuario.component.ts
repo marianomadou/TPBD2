@@ -3,6 +3,7 @@ import { Producto } from 'src/app/clases/producto';
 import { Usuario } from 'src/app/clases/usuario';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
 import { MiservicioPrincipalService } from 'src/app/servicios/miservicio-principal.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-detalle-usuario',
@@ -17,6 +18,7 @@ export class DetalleUsuarioComponent implements OnInit {
   verLocales;
   usuarioCopia: Usuario;
   listaLocales = [];
+  showSpinner: boolean;
 
   constructor(private servicioGeneral: MiservicioPrincipalService) {
     this.modal = new EventEmitter();
@@ -46,11 +48,19 @@ export class DetalleUsuarioComponent implements OnInit {
 
 
   onChange(local) {
+    this.showSpinner = true;
     this.usuarioCopia.local = local;
+    timer(3000).subscribe(() => {
+      this.showSpinner = false;
+    });
   }
 
   onChangePerfil(perfil) {
+    this.showSpinner = true;
     this.usuarioCopia.perfil = perfil;
+    timer(3000).subscribe(() => {
+      this.showSpinner = false;
+    });
   }
 
 

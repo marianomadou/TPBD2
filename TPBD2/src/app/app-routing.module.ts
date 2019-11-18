@@ -26,8 +26,6 @@ const routes: Routes = [
   { path: 'admin', component: PerfilAdminComponent, canActivate: [AdminGuard] },
   { path: 'usuario', component: PerfilUsuarioComponent, canActivate: [UsuarioGuard] },
   { path: 'login', component: AltaUsuarioComponent },
-  { path: 'perfilPropio', component: PerfilAdminComponent },
-
   { path: '', redirectTo: '/login', pathMatch: 'full' }];
 
 
