@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-5">
             <div class="team-member text-center">
                 <img src="{{producto.foto}}" class="mx-auto rounded-circle" alt="{{producto.foto}}"
                     style=" max-height: 150px;  margin-left: auto; margin-right: auto;   width: auto">
@@ -32,6 +32,10 @@
                         </a>
                     </li>
                 </ul>
+
+                <div class="col-12 mt-2">
+                    <app-listado-log-usuario></app-listado-log-usuario>
+                </div>
             </div>
         </div>
 
@@ -77,12 +81,11 @@
                     </div>
 
                 </div>
-                <div class="col-12 mt-5 text-right">
-                    <button type="button" class="btn btn-secondary text-center "
+                <div class="col-12 mt-5 text-right mb-2">
+                    <button type="button" class="btn btn-secondary text-center mb-2"
                         (click)="cambiarInfo()">Modificar</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!--//logs de usuarios <app-listado-log-usuario></app-listado-log-usuario> -->

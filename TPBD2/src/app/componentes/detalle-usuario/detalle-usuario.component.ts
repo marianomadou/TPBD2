@@ -48,19 +48,11 @@ export class DetalleUsuarioComponent implements OnInit {
 
 
   onChange(local) {
-    this.showSpinner = true;
     this.usuarioCopia.local = local;
-    timer(3000).subscribe(() => {
-      this.showSpinner = false;
-    });
   }
 
-  onChangePerfil(perfil) {
-    this.showSpinner = true;
-    this.usuarioCopia.perfil = perfil;
-    timer(3000).subscribe(() => {
-      this.showSpinner = false;
-    });
+  onChangePerfil(local) {
+    this.usuarioCopia.perfil = local;
   }
 
 
@@ -70,8 +62,20 @@ export class DetalleUsuarioComponent implements OnInit {
   }
 
   modificarLocal() {
+    this.showSpinner = true;
     this.producto.local = this.usuarioCopia.local;
     this.servicioGeneral.usuarios().actualizarUno(this.producto);
-    alert("perfil modificado")
+    timer(3000).subscribe(() => {
+      this.showSpinner = false;
+    });
+  }
+
+  modificarPerfil() {
+    this.showSpinner = true;
+    this.producto.perfil = this.usuarioCopia.perfil;
+    this.servicioGeneral.usuarios().actualizarUno(this.producto);
+    timer(3000).subscribe(() => {
+      this.showSpinner = false;
+    });
   }
 }

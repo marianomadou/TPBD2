@@ -33,8 +33,6 @@ export class DetalleInfoPersonalComponent implements OnInit {
     this.nuevoStock = 0;
     this.archivo = false;
     this.opcion = 1;
-    // this.servicioGeneral.productos().traerTodo().subscribe(() => this.dataSource = new MatTableDataSource(this.producto.logDeStock));
-
   }
 
   destruir() {

@@ -1,6 +1,9 @@
 <!--Section heading-->
 
 <div class="col-12">
+
+        <button class="btn btn-dark btn-block" (click)="descargaProductos()"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Descargar info productos</button>
+
     <mat-form-field>
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar">
     </mat-form-field>

@@ -1,5 +1,3 @@
-<!-- <app-encabezado> </app-encabezado> -->
-
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
 
@@ -108,13 +106,15 @@
     </div>
 </section>
 
+<section class="page-section" id="parallaxUp" ></section>
 <!-- usuarioActual -->
 <section class="bg-light page-section" id="usuarioActual" #usuarioActual>
     <app-detalle-info-personal [producto]="usuarioElegido"> </app-detalle-info-personal>
 </section>
 
+<section class="page-section" id="parallaxMid" ></section>
 
-<!-- Usuarios -->
+<!-- Empleados -->
 <section class="page-section" id="usuarios" #usuarios style="background-color: beige;">
     <div class="container">
         <div class="row">
@@ -122,6 +122,7 @@
                 <h2 class="section-heading text-uppercase">Listado de Usuarios del sistema</h2>
                 <h3 class="section-subheading text-muted">Acceda al listado actualizado de los usuarios del sistema,
                     modifique sus datos personales y asigna un local tanto para usuarios como para administradores.</h3>
+                    
             </div>
         </div>
         <div class="row">
@@ -164,11 +165,15 @@
     </div>
 </section>
 
+<!-- Parallax -->
+<section class="page-section" id="parallaxDown" >
+</section>
+
 <!-- Locales -->
-<section class="page-section" id="portfolio" #locales style="background-color: beige;">
+<section class="page-section " id="portfolio" #locales style="background-color: beige;">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
+        <div class="row mb-4">
+            <div class="col-lg-12 text-center mt-5">
                 <h2 class="section-heading text-uppercase">Locales</h2>
                 <h3 class="section-subheading text-muted">Acceda al listado actualizado de los locales de la empresa.
                     El administrador del sistema podrá ingresar nuevos locales y modificar o eliminar los ya ingresados.
@@ -214,8 +219,8 @@
 <section class="page-section" id="contact" #contact>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Contactese con nosotros</h2>
+            <div class="col-lg-8 text-center">
+                <h2 class="section-heading text-uppercase" style="color: #212529;">Contactese con nosotros</h2>
                 <h3 class="section-subheading text-muted">Sección temporalmente deshabilitada</h3>
             </div>
         </div>
@@ -223,7 +228,7 @@
             <div class="col-lg-12">
                 <form id="contactForm" name="sentMessage" novalidate="novalidate">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <input class="form-control" id="name" type="text" placeholder="Your Name *"
                                     required="required" data-validation-required-message="Please enter your name."
@@ -243,7 +248,7 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <textarea class="form-control" id="message" placeholder="Your Message *"
                                     required="required" data-validation-required-message="Please enter a message."
@@ -252,7 +257,7 @@
                             </div>
                         </div>
                         <div class="clearfix"></div>
-                        <div class="col-lg-12 text-center">
+                        <div class="col-lg-8 text-center">
                             <div id="success"></div>
                             <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit"
                                 disabled>Enviar</button>

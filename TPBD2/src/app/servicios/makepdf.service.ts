@@ -1,71 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MiservicioPrincipalService } from 'src/app/servicios/miservicio-principal.service';
-import { Producto } from 'src/app/clases/producto';
-import { MatTableDataSource } from '@angular/material/table';
+import { Injectable } from '@angular/core';
 import * as pdfMake from 'pdfmake/build/pdfmake.js';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts.js';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-@Component({
-  selector: 'app-listado-producto',
-  templateUrl: './listado-producto.component.html',
-  styleUrls: ['./listado-producto.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class ListadoProductoComponent implements OnInit {
-
+export class MakepdfService {
   productos: Array<any> = Array<any>();
-  displayedColumns: string[] = ['Nombre', 'Descripcion', 'Stock', 'Foto'];
-  dataSource;
-  productoElegido;
 
+  constructor() { }
 
-  constructor(private servicioGeneral: MiservicioPrincipalService) { }
-
-
-  ngOnInit() {
-
-    this.servicioGeneral.productos().traerTodo().subscribe((actions => {
-      this.productos = [];
-      actions.map(a => {
-        const data = a.payload.doc.data() as Producto;
-        this.productos.push(data);
-      });
-      this.dataSource = new MatTableDataSource(this.productos);
-    }));
-
-
-
-  }
-
-  async  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-
-  elegir(nombre) {
-    this.productoElegido = nombre;
-  }
-
-
-
-
-
-
-  eliminar(peli) {
-    var r = confirm("Press a button!");
-    if (r == true) {
-
-      this.servicioGeneral.productos().borrarUno(peli.id)
-    } else {
-
-    }
-
-  }
-  ocultar($event) {
-    this.productoElegido = false;
-  }
-
-
-  descargaProductos() {
+  descargaProductos(productos) {
     const documentDefinition = {
       content: [
         {
@@ -76,7 +22,7 @@ export class ListadoProductoComponent implements OnInit {
           decoration: 'underline',
           margin: [0, 0, 0, 20]
         },
-        this.getListaProductosPDF(),
+        this.getListaProductosPDF(productos),
 
       ],
       styles: {
@@ -95,7 +41,7 @@ export class ListadoProductoComponent implements OnInit {
     pdfMake.createPdf(documentDefinition).download('Listado_Productos.pdf');
 
   }
-  getListaProductosPDF() {
+  getListaProductosPDF(productos) {
     const exs = [];
     this.productos.forEach(element => {
       exs.push(
@@ -136,9 +82,4 @@ export class ListadoProductoComponent implements OnInit {
     };
 
   }
-
-
 }
-
-
-

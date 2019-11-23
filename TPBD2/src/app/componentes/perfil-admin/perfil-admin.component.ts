@@ -11,19 +11,31 @@ import { MiservicioPrincipalService } from 'src/app/servicios/miservicio-princip
 })
 export class PerfilAdminComponent implements OnInit {
 
+  usuarios: Array<any> = Array<any>();
+  usuarioElegido: Usuario;
 
-usuarioElegido: Usuario;
+  constructor(private usuSer: UsuariosService, public servicio: MiservicioPrincipalService) {
+    this.usuarioElegido = new Usuario();
+    this.servicio.usuarios().traerTodosUsuarios().subscribe((actions => {
+      this.usuarios = [];
+      actions.map(a => {
+        const data = a.payload.doc.data() as Usuario;
+        this.usuarios.push(data);
+      });
+    }));
 
-  constructor(private usuSer: UsuariosService, public servicio: MiservicioPrincipalService) { 
-    this.usuarioElegido= new Usuario();
   }
 
   ngOnInit() {
-    this.usuarioElegido=this.usuSer.traerUsuarioActual();
+    this.usuarioElegido = this.usuSer.traerUsuarioActual();
   }
 
   public scrollToElement(element): void {
     element.scrollIntoView({ behavior: "smooth", inline: "nearest" });
   }
+
+  
+  
+
 
 }

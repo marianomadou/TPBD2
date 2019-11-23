@@ -7,7 +7,9 @@ import { LogStock } from 'src/app/clases/log-stock';
 import { LogLocal } from 'src/app/clases/log-local';
 import { LogUsuario } from 'src/app/clases/log-Usuario';
 import { timer } from 'rxjs';
-
+import * as pdfMake from 'pdfmake/build/pdfmake.js';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts.js';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 
 @Component({
@@ -53,7 +55,7 @@ export class DestalleProductoComponent implements OnInit {
 
     let productoYaExiste = false;
     this.showSpinner = true;
-    timer(3000).subscribe( () => {
+    timer(3000).subscribe(() => {
       this.showSpinner = false;
     });
 
@@ -63,15 +65,17 @@ export class DestalleProductoComponent implements OnInit {
         if ((element.stock + this.nuevoStock) > 0 && !productoYaExiste) {
           element.stock = element.stock + this.nuevoStock;
           productoYaExiste = true;
-          this.producto.stock=element.stock;
-          this.nuevoStockDetalle = "existe";
+          this.producto.stock = element.stock;
+          this.producto.descripcion = element.detalle;
+          //this.nuevoStockDetalle = "existe";
           this.producto.logDeStock.push(JSON.parse(JSON.stringify(new LogStock(this.servicioGeneral.autenticar().afAuth.auth.currentUser.email, new Date(Date.now()), this.nuevoStock, this.servicioGeneral.usuarios().traerUsuarioActual().local, this.nuevoStockDetalle))));
 
         }
         if ((element.stock + this.nuevoStock) < 0 && !productoYaExiste) {
           productoYaExiste = true;
-          this.producto.stock=element.stock;
-          this.nuevoStockDetalle = "NO ALCANZA";
+          this.producto.stock = element.stock;
+          this.producto.descripcion = element.detalle;
+          //this.nuevoStockDetalle = "NO ALCANZA";
 
         }
       }
@@ -89,6 +93,96 @@ export class DestalleProductoComponent implements OnInit {
 
   async  applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  descargaProducto() {
+    var now = new Date()
+    var date = now.toLocaleDateString();
+    var time = now.toLocaleTimeString();
+    const documentDefinition = {
+      content: [
+        {
+          text: 'Listado de Logs del producto ' + this.producto.nombre + ' de DOTDOU' + ' Reporte generado el día ' + date + ' a las ' + time,
+          bold: true,
+          fontSize: 20,
+          alignment: 'center',
+          decoration: 'underline',
+          margin: [0, 0, 0, 20]
+        },
+        this.getLogsProductoPDF(),
+
+      ],
+      styles: {
+        name: {
+          fontSize: 14,
+        },
+        jobTitle: {
+          fontSize: 16,
+          bold: true,
+          italics: true
+        }
+      }
+    }
+
+
+    pdfMake.createPdf(documentDefinition).download('Logs_Producto.pdf');
+
+  }
+  getLogsProductoPDF() {
+    let contador: number = 0;
+    var esafecha;
+    var hora;
+    const exs = [];
+    this.producto.logDeStock.forEach(element => {
+      esafecha = element.fecha.split('T');
+      hora = esafecha[1].split('.');
+      exs.push(
+        [{
+          columns: [
+            [{
+              text: "Log número: " + contador,
+              style: 'name'
+            },
+            {
+              text: "Usuario: " + element.usuario,
+              style: 'name'
+            },
+            {
+              text: "Fecha: " + esafecha[0],
+              style: 'date'
+            },
+            {
+              text: "Hora: " + hora[0],
+              style: 'date'
+            },
+            {
+              text: "Local: " + element.local,
+              style: 'name'
+            },
+            {
+              text: "Motivo: " + element.detalle,
+              style: 'name'
+            },
+            {
+              text: "Cantidad: " + element.cantidad,
+              style: 'name'
+            }
+            ]
+          ]
+        }]
+      );
+      contador++;
+    });
+
+    return {
+      table: {
+        widths: ['*'],
+        body: [
+          ...exs
+        ]
+      }
+    };
+
   }
 
 }
