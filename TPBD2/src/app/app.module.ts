@@ -36,6 +36,7 @@ import { ListadoLocalesComponent } from './componentes/listado-locales/listado-l
 import { AltaLocalesComponent } from './componentes/alta-locales/alta-locales.component';
 import { DetalleLocalComponent } from './componentes/detalle-local/detalle-local.component';
 import { ListadoLogUsuarioComponent } from './componentes/listado-log-usuario/listado-log-usuario.component';
+import { ListadoProductoUsuarioComponent } from './componentes/listado-producto-usuario/listado-producto-usuario.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { ListadoLogUsuarioComponent } from './componentes/listado-log-usuario/li
     AltaLocalesComponent,
     DetalleLocalComponent,
     ListadoLogUsuarioComponent,
+    ListadoProductoUsuarioComponent,
   ],
   imports: [
     BrowserModule, MaterialModule,

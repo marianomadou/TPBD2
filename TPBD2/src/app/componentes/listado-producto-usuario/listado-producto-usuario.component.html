@@ -1,0 +1,42 @@
+
+<div class="col-12">
+
+    <button class="btn btn-dark btn-block" (click)="descargaProductos()"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Descargar info productos</button>
+
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar">
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" style="border-spacing: 100px;">
+    <!-- Position Column -->
+    <ng-container matColumnDef="Nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let producto" (click)="elegir(producto)"> {{producto.nombre}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Descripcion">
+        <th mat-header-cell *matHeaderCellDef class="mr-3"> Descripción </th>
+        <td mat-cell *matCellDef="let producto" style="margin-right: 500px; margin-left: 500px;" (click)="elegir(producto)"> {{producto.descripcion}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Stock">
+        <th mat-header-cell *matHeaderCellDef class="mr-3"> Stock </th>
+        <td mat-cell *matCellDef="let producto" class="mr-3" (click)="elegir(producto)"> {{producto.stock}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Foto">
+        <th mat-header-cell *matHeaderCellDef class="mr-3"> Foto </th>
+        <td mat-cell *matCellDef="let producto" class="mr-3" (click)="elegir(producto)"> <img class="mx-auto rounded-circle" src="{{producto.url}}" style="height: 100px;" alt=""> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+
+<app-destalle-producto [producto]="productoElegido" *ngIf="productoElegido" (modal)="ocultar($event)"> </app-destalle-producto>
+
+</div>

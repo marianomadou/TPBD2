@@ -48,7 +48,6 @@ export class DestalleProductoComponent implements OnInit {
 
   destruir() {
     this.modal.emit(false);
-
   }
 
   agregarStock() {

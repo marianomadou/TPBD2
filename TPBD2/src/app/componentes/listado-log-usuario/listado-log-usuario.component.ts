@@ -34,14 +34,15 @@ export class ListadoLogUsuarioComponent implements OnInit {
       this.dataSource = new MatTableDataSource(this.peliculas);
     }));
     setTimeout(() => {
-      console.log('HOLAAAAAAAAAAAAAAA', this.peliculas)
     }, 3000);
+    this.usuarioActual = this.userSvc.traerUsuarioActual();
+    console.log('usuariooooooo', this.usuarioActual)
   }
 
 
   ngOnInit() {
 
-    this.usuarioActual = this.userSvc.traerUsuarioActual();
+    
 
 
 

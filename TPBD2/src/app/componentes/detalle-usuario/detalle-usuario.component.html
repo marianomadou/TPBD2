@@ -72,6 +72,18 @@
                         <p class="item-intro text-muted">Apellido: {{producto.apellido}}</p>
                         <p class="item-intro text-muted">Perfil: {{producto.perfil}}</p>
                         <p class="item-intro text-muted">Local: {{producto.local}}</p>
+
+                        <div class="col-lg-12 mx-auto" *ngIf="this.sinDatosParaDescargar">
+                            <button class="btn btn-danger mt-2 mb-3" type="button"
+                                (click)="descargaUsuarioMovimientos()"><i class="fa fa-file-pdf-o"
+                                    aria-hidden="true"></i> Descargar Logs de Usuarios
+                                y sus movimientos</button>
+                        </div>
+                        <div class="col-lg-12 mt-2 mb-2 mx-auto" *ngIf="!this.sinDatosParaDescargar">
+                            <h3 style="color: brown;">Atencion! El usuario {{producto.nombre}}
+                                {{producto.apellido}}<br>
+                                todavia no tiene logs para mostrar.</h3>
+                        </div>
                     </div>
                 </div>
             </div>

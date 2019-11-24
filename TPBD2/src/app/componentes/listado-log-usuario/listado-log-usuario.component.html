@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="this.usuarioActual.perfil=='admin'">
     <button class="btn btn-danger btn-block" (click)="descargaLogsUsuario()"><i class="fa fa-file-pdf-o"
             aria-hidden="true"></i> Descargar Log de movimientos del usuario actual</button>
 </div>
