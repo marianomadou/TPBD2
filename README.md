@@ -1,5 +1,5 @@
 # TP Base de datos Firebase
-## Base de datos Tecnicatura Superior en Programación. UTN-FRA 
+## Base de datos Tecnicatura Universitaria en Programación. UTN-FRA 
 
 **Autores: Prof. Villegas Octavio**
 
