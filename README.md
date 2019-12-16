@@ -32,6 +32,8 @@ C. Se debe informar por cada producto, todas las operaciones.
 
 D. Se debe informar por cada usuario la operaciones realizadas 
 
+![TP Base de datos NoSql ](https://github.com/marianomadou/TPBD2/blob/master/Documentacion/listado_usuarios_pdf.jpg)
+
 E. Se debe informar por cada local los usuarios. 
 
 F. Se debe informar por cada local los cambios sobre los productos. 
