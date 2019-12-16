@@ -3,6 +3,13 @@
 
 **Autores: Prof. Villegas Octavio**
 
+## Desarrollado con Angular 8 - Bootstrap: 4.3.1 - Firebase: 7.2.1 - Jquery: 3.4.1
+
+![TP Base de datos NoSql ](https://github.com/marianomadou/TPBD2/blob/master/Documentacion/header_app.jpg)
+
+Firebase deploy en 
+## https://tpbd2-b2c61.firebaseapp.com/
+
 ### Objetivo: 
 
 El trabajo práctico está dirigido interactuar con una base de datos NoSql, almacenando los  datos jerárquicamente según la necesidad de flujo de datos para la interfaz de usuario. 
@@ -58,9 +65,7 @@ Dos productos no pueden tener el mismo código (los demás datos si se pueden re
 
 Utilizar filtros para las búsquedas. 
 
-
-Firebase deploy en 
-## https://tpbd2-b2c61.firebaseapp.com/
+## Usuarios para testing:
 
 admin: mariano@gmail.com 
 pass:123456
