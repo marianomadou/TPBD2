@@ -20,7 +20,11 @@ de la operación( crear, agregar stock, sacar stock, hacer el borrado lógico).
 
 A. debe manejar imágenes tanto para los usuario como para los productos. 
 
+![TP Base de datos NoSql ](https://github.com/marianomadou/TPBD2/blob/master/Documentacion/listado_productos.jpg)
+
 B. Debe permitir manejar perfiles. 
+
+![TP Base de datos NoSql ](https://github.com/marianomadou/TPBD2/blob/master/Documentacion/abm_user.jpg)
 
 C. Se debe informar por cada producto, todas las operaciones. 
 
