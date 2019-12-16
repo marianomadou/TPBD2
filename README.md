@@ -28,6 +28,8 @@ B. Debe permitir manejar perfiles.
 
 C. Se debe informar por cada producto, todas las operaciones. 
 
+![TP Base de datos NoSql ](https://github.com/marianomadou/TPBD2/blob/master/Documentacion/listado_productos_pdf.jpg)
+
 D. Se debe informar por cada usuario la operaciones realizadas 
 
 E. Se debe informar por cada local los usuarios. 
