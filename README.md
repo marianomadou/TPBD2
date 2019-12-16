@@ -10,6 +10,8 @@ El trabajo práctico está dirigido interactuar con una base de datos NoSql, alm
 * El proyecto debe estar en un repositorio (compartido). 
 * Cuenta de firebase. 
 
+### Movile First
+
 ![TP Base de datos NoSql ](https://github.com/marianomadou/TPBD2/blob/master/Documentacion/responsive1.jpg)
 
 **Requerimientos:**
@@ -36,10 +38,16 @@ D. Se debe informar por cada usuario la operaciones realizadas
 
 E. Se debe informar por cada local los usuarios. 
 
+![TP Base de datos NoSql ](https://github.com/marianomadou/TPBD2/blob/master/Documentacion/listado_locales_pdf.jpg)
+
 F. Se debe informar por cada local los cambios sobre los productos. 
+
+
 
 **Datos del producto:**
 Código, nombre, costo, cantidad, fecha creación, descripción, observaciones. 
+
+![TP Base de datos NoSql ](https://github.com/marianomadou/TPBD2/blob/master/Documentacion/alta_producto.jpg)
 
 **Aclaraciones:**
 Para crear el producto, se crea con stock 0 y se agrega el stock al ingresar el producto al local. 
@@ -51,17 +59,12 @@ Dos productos no pueden tener el mismo código (los demás datos si se pueden re
 Utilizar filtros para las búsquedas. 
 
 
-firebase deploy en https://tpbd2-b2c61.firebaseapp.com/
+Firebase deploy en 
+## https://tpbd2-b2c61.firebaseapp.com/
 
-admin: mariano@gmail.com pass:123456
-user: lucila@gmail.com pass:123456
+admin: mariano@gmail.com 
+pass:123456
 
-**Correcciones martes 19-11**
+user: lucila@gmail.com 
+pass:123456
 
-1- Se debe informar por cada producto, todas las operaciones
-
-2- se debe informar por cada usuario las operaciones realizadas 
-
-3- Se deben informar por cada local los usuarios 
-
-4- se debe informar por cada cada local los cambios sobre los productos
