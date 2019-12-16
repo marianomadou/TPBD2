@@ -10,7 +10,7 @@ El trabajo práctico está dirigido interactuar con una base de datos NoSql, alm
 * El proyecto debe estar en un repositorio (compartido). 
 * Cuenta de firebase. 
 
-![TP Base de datos NoSql ](https://github.com/marianomadou/TPBD2/Documentacion/responsive1.jpg)
+![TP Base de datos NoSql ](https://github.com/marianomadou/TPBD2/blob/master/Documentacion/responsive1.jpg)
 
 **Requerimientos:**
 Necesitamos controlar el movimiento de stock de nuestra empresa, logrando informar todos los movimientos de stock, junto con la fecha, el empleado, el local y la descripción 
