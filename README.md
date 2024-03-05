@@ -1,7 +1,7 @@
-# TP Base de datos Firebase
-## Base de datos Tecnicatura Universitaria en Programación. UTN-FRA 
+# Base de datos no relacionales (Firebase)
+## Base de datos 
 
-**Autores: Prof. Villegas Octavio**
+**Autores: MAriano Madou**
 
 ## Desarrollado con Angular 8 - Bootstrap: 4.3.1 - Firebase: 7.2.1 - Jquery: 3.4.1
 
@@ -12,7 +12,7 @@ Firebase deploy en
 
 ### Objetivo: 
 
-El trabajo práctico está dirigido interactuar con una base de datos NoSql, almacenando los  datos jerárquicamente según la necesidad de flujo de datos para la interfaz de usuario. 
+Interactuar con una base de datos NoSql, almacenando los  datos jerárquicamente según la necesidad de flujo de datos para la interfaz de usuario. 
 
 * El proyecto debe estar en un repositorio (compartido). 
 * Cuenta de firebase. 
